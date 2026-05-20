@@ -1,0 +1,12 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NEXT_PUBLIC_API_URL = "https://crypto-web3-toolkit-backend.up.railway.app"
+  NEXT_PUBLIC_MOCK_MODE = "false"
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
