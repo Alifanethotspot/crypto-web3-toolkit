@@ -1,136 +1,178 @@
-# Crypto Web3 Toolkit
+# Crypto Web3 Toolkit 🚀
 
-A comprehensive AI-powered Web3 toolkit for wallet analysis, smart contract auditing, and market sentiment analysis.
+AI-powered Web3 analysis toolkit with wallet analyzer, smart contract auditor, and market sentiment tracker.
 
 ## Features
 
 ### 1. AI Wallet Analyzer
-- **Multi-chain support**: Ethereum, Polygon, BSC, Solana
-- **Risk scoring**: AI-powered risk assessment based on transaction patterns
-- **Portfolio insights**: Token distribution, profit/loss analysis
-- **Anomaly detection**: Suspicious activity alerts
+- Analyze wallet addresses across multiple chains (Ethereum, BSC, Polygon)
+- AI-powered risk assessment
+- Transaction pattern analysis
+- Portfolio insights
 
 ### 2. Smart Contract Auditor
-- **Static analysis**: Security vulnerability detection
-- **Gas optimization**: Cost reduction recommendations
-- **Best practices**: Compliance with security standards
-- **Audit report generation**: PDF reports with findings
+- Security vulnerability detection
+- Gas optimization suggestions
+- Code quality analysis
+- Best practices validation
 
 ### 3. Market Sentiment Analyzer
-- **Real-time data**: Twitter/X, Reddit, Telegram sentiment
-- **Price correlation**: Sentiment vs price movement analysis
-- **Trend detection**: Emerging token trends
-- **Custom alerts**: Set sentiment threshold notifications
+- Real-time sentiment tracking
+- Social media analysis
+- News aggregation
+- Trend prediction
 
 ## Tech Stack
 
-**Frontend**
+**Frontend:**
 - Next.js 14 (App Router)
 - TypeScript
 - Tailwind CSS
-- Recharts for data visualization
-- Wagmi + Viem for Web3 interactions
+- Shadcn UI components
 
-**Backend**
+**Backend:**
 - FastAPI (Python)
-- PostgreSQL for data storage
-- Redis for caching
-- Celery for async tasks
+- PostgreSQL
+- Redis
+- OpenAI GPT-4
 
-**AI/ML**
-- OpenAI GPT-4 for analysis
-- Custom ML models for risk scoring
-- Hugging Face transformers for sentiment analysis
+**Infrastructure:**
+- Railway (Backend)
+- Vercel (Frontend)
+- GitHub Actions (CI/CD)
+
+## Quick Start
+
+### Local Development
+
+1. Clone repository:
+```bash
+git clone https://github.com/Alifanethotspot/crypto-web3-toolkit.git
+cd crypto-web3-toolkit
+```
+
+2. Start backend:
+```bash
+cd backend
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+cp .env.example .env  # Configure your API keys
+uvicorn main:app --reload --port 8000
+```
+
+3. Start frontend:
+```bash
+cd frontend
+npm install
+cp .env.local.example .env.local  # Configure API URL
+npm run dev
+```
+
+4. Open http://localhost:3000
+
+## Deployment
+
+### Backend (Railway)
+1. Go to https://railway.app
+2. Deploy from GitHub: `Alifanethotspot/crypto-web3-toolkit`
+3. Set root directory: `backend`
+4. Add environment variables (see DEPLOYMENT_MANUAL.md)
+
+### Frontend (Vercel)
+1. Go to https://vercel.com
+2. Import project: `crypto-web3-toolkit`
+3. Set root directory: `frontend`
+4. Add environment variables (see DEPLOYMENT_MANUAL.md)
+
+See [DEPLOYMENT_MANUAL.md](DEPLOYMENT_MANUAL.md) for detailed instructions.
+
+## Environment Variables
+
+### Backend (.env)
+```bash
+OPENAI_API_KEY=your_key
+DATABASE_URL=postgresql://user:pass@host/db
+REDIS_URL=redis://host:6379/0
+SECRET_KEY=your_secret
+MOCK_MODE=true  # Set false in production
+```
+
+### Frontend (.env.local)
+```bash
+NEXT_PUBLIC_API_URL=http://localhost:8000
+NEXT_PUBLIC_MOCK_MODE=true
+```
+
+## API Documentation
+
+Once backend is running, visit:
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
 
 ## Project Structure
 
 ```
 crypto-web3-toolkit/
-├── frontend/          # Next.js application
-├── backend/           # FastAPI application
-├── ml-models/         # AI/ML models
-├── docs/              # Documentation
-└── scripts/           # Deployment scripts
+├── backend/
+│   ├── app/
+│   │   ├── api/routes/      # API endpoints
+│   │   ├── core/            # Core functionality
+│   │   ├── models/          # Database models
+│   │   └── services/        # Business logic
+│   ├── tests/               # Backend tests
+│   ├── main.py              # FastAPI app
+│   └── requirements.txt
+├── frontend/
+│   ├── app/                 # Next.js pages
+│   ├── components/          # React components
+│   ├── lib/                 # Utilities
+│   └── package.json
+├── .github/workflows/       # CI/CD
+└── README.md
 ```
 
-## Getting Started
+## Testing
 
-### Prerequisites
-- Node.js 18+
-- Python 3.11+
-- PostgreSQL 14+
-- Redis 7+
-
-### Installation
-
-1. Clone the repository:
-```bash
-git clone <your-repo-url>
-cd crypto-web3-toolkit
-```
-
-2. Set up backend:
+### Backend
 ```bash
 cd backend
-python -m venv venv
-source venv/bin/activate
-pip install -r requirements.txt
+pytest tests/ -v
 ```
 
-3. Set up frontend:
+### Frontend
 ```bash
 cd frontend
-npm install
+npm test
 ```
 
-4. Configure environment variables (see `.env.example` files)
+## Contributing
 
-5. Run the applications:
-```bash
-# Backend
-cd backend
-uvicorn main:app --reload --port 8000
-
-# Frontend
-cd frontend
-npm run dev
-```
-
-## API Documentation
-
-Once running, visit:
-- Backend API docs: http://localhost:8000/docs
-- Frontend: http://localhost:3000
-
-## Mock API Mode
-
-For testing without blockchain API keys, enable mock mode:
-```bash
-export MOCK_MODE=true
-```
-
-## Deployment
-
-### Railway (Backend)
-```bash
-railway up
-```
-
-### Vercel (Frontend)
-```bash
-vercel --prod
-```
-
-## Submission Requirements
-
-This project includes:
-- ✅ Complete source code
-- ✅ Comprehensive documentation
-- ✅ Mock API for testing
-- ✅ Deployment guides
-- ✅ API documentation
-- ✅ Security considerations
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature/amazing-feature`
+3. Commit changes: `git commit -m 'Add amazing feature'`
+4. Push to branch: `git push origin feature/amazing-feature`
+5. Open Pull Request
 
 ## License
 
-MIT License
+MIT License - see [LICENSE](LICENSE) file
+
+## Author
+
+**Alifanethotspot**
+- GitHub: [@Alifanethotspot](https://github.com/Alifanethotspot)
+- Email: alifanethotspot1@gmail.com
+
+## Acknowledgments
+
+- OpenAI for GPT-4 API
+- Railway for backend hosting
+- Vercel for frontend hosting
+- Web3.py and Ethers.js communities
+
+---
+
+**Status:** 🚀 Production Ready  
+**Version:** 1.0.0  
+**Last Updated:** 2026-05-20
